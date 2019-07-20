@@ -21,4 +21,4 @@ withPortal(domElem)(Component)
 
 # Решение
 
-[source](https://github.com/Cath-kb/react-portal-homework) | [demo](https://cath-kb.github.io/react-portal-homework)
+[Demo](https://cath-kb.github.io/react-portal-homework) | [Source code](https://github.com/Cath-kb/react-portal-homework)
