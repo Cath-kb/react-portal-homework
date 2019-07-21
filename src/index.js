@@ -18,15 +18,15 @@ class App extends React.Component {
   formRef = React.createRef()
   alert_id = 0
 
-  focusForm = () => this.formRef.current.focusInput()
+  focusForm = () => this.formRef.current.focus()
 
   getNextId = () => this.alert_id++
 
-  addAlert = value => {
+  addAlert = message => {
     const { alerts } = this.state
 
     this.setState({
-      alerts: [...alerts, {id: this.getNextId(), value}]
+      alerts: [...alerts, {id: this.getNextId(), message}]
     })
   }
 

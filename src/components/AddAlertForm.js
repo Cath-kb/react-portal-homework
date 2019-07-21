@@ -2,70 +2,70 @@ import React from "react";
 
 export class AddAlertForm extends React.Component {
   state = {
-    value: ''
+    message: ''
   }
 
   inputRef = React.createRef()
 
-  focusInput = () => {
+  focus = () => {
     this.inputRef.current.focus()
   }
 
-  clearInput = () => {
+  reset = () => {
     this.setState({
-      value: ''
+      message: ''
     })
   }
 
   onChange = e => {
     this.setState({
-      value: e.target.value
+      message: e.target.value
     })
   }
 
   onKeyDown = e => {
-    const { value } = this.state
+    const { message } = this.state
 
     if (e.keyCode === 13) {
       e.preventDefault()
     }
 
-    if (e.keyCode === 13 && value.trim()) {
+    if (e.keyCode === 13 && message.trim()) {
       this.addAlert()
     }
   }
 
   addAlert = () => {
-    const { value } = this.state
+    const { message } = this.state
     const { onSubmit } = this.props
 
-    onSubmit(value)
+    onSubmit(message)
 
-    this.clearInput()
-    this.focusInput()
+    this.reset()
+    this.focus()
   }
 
   componentDidMount() {
-    this.focusInput()
+    this.focus()
   }
 
   render() {
-    const { value } = this.state
+    const { message } = this.state
 
     return (
       <form>
         <div className="field">
           <input
-            value={ value }
+            value={ message }
             onChange={this.onChange}
             onKeyDown={this.onKeyDown}
             type="text"
-            placeholder="Alert text..."
+            placeholder="Alert message..."
             ref={this.inputRef}
           />
           <button
             onClick={this.addAlert}
-            disabled={!value.trim()}
+            disabled={!message.trim()}
             type="button"
           >
             Add alert
